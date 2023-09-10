@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Schleife durch die Bilder im Verzeichnis
+# Schleife durch die Videos im Verzeichnis
 for image in ./*.mp4; do
-    # Extrahiere das DateCreated-Datum
+    # Extrahiere das FileCreateDate-Datum
     date_created=$(exiftool -s -s -s -FileCreateDate -FileCreateDate "$image")
-    # Aktualisiere das DateTimeOriginal mit DateCreated
-    exiftool "-AllDates=$date_created" "$image"
+    # Aktualisiere das FileModifyDate mit FileCreateDate
+    exiftool "-FileModifyDate=$date_created" "$image"
 done
