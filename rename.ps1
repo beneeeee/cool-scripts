@@ -1,0 +1,1 @@
+powershell -NoExit -Command { $count = 1; Get-ChildItem -Path . -Filter 'frame_*.jpg' | ForEach-Object { $newName = 'folder_2_img_{0:D4}.jpg' -f $count; Rename-Item -Path $_.FullName -NewName $newName; $count += 1 } }
